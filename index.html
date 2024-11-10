@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Sorting Algorithms Visualization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: #f0f4f8;
+        color: #333;
+      }
+      h1, h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
+      #controls {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+      .checkbox-group label {
+        margin: 5px 10px;
+        display: flex;
+        align-items: center;
+      }
+      .slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
+        width: 100%;
+      }
+      .slider-container input {
+        width: 100%;
+        max-width: 300px;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      button:disabled {
+        background-color: #bdc3c7;
+        cursor: not-allowed;
+      }
+      .canvas-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      .algorithm-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      canvas {
+        border: 1px solid #3498db;
+        border-radius: 4px;
+      }
+      .algorithm-name {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .algorithm-timer {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #7f8c8d;
+      }
+      #leaderboardContainer {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        display: none;
+      }
+      #leaderboardContainer ol {
+        padding-left: 20px;
+      }
+      #leaderboardContainer li {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enhanced Sorting Algorithms Visualization</h1>
+    <div id="controls">
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="algorithm" value="bubble"> Bubble Sort</label>
+        <label><input type="checkbox" name="algorithm" value="selection"> Selection Sort</label>
+        <label><input type="checkbox" name="algorithm" value="insertion"> Insertion Sort</label>
+        <label><input type="checkbox" name="algorithm" value="quick"> Quick Sort</label>
+        <label><input type="checkbox" name="algorithm" value="merge"> Merge Sort</label>
+        <label><input type="checkbox" name="algorithm" value="heap"> Heap Sort</label>
+      </div>
+      <div class="slider-container">
+        <label for="speedSlider">Animation Speed:</label>
+        <input type="range" id="speedSlider" min="1" max="100" value="50">
+      </div>
+      <div class="slider-container">
+        <label for="disorderSlider">Initial Disorder Level:</label>
+        <input type="range" id="disorderSlider" min="0" max="100" value="50">
+      </div>
+      <div>
+        <button id="start">Start Sorting</button>
+        <button id="stop" disabled>Stop</button>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+    <div class="canvas-container" id="canvasContainer"></div>
+    <div id="leaderboardContainer"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
